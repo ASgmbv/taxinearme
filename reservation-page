@@ -1,0 +1,133 @@
+<?php /* Template Name: ReservationPage */ 
+
+get_header(); ?>
+
+
+	<div class="form-section row">
+
+		<div class="col span-1-of-2 left-pane">
+			<p class="section-title"> Your information </p>	
+
+			<form id="myform" method="post" target="dummyframe">
+			    
+			    <fieldset>
+    				<input id="first-name-input" name="first-name-input" type="text" placeholder="First name" required>
+    				<input id="last-name-input" name="last-name-input" type="text" placeholder="Last name" required>
+    				<input name="email-input" type="email" placeholder="email@mail.com" required>
+    				<input name="phone-input" type="tel" placeholder="123456" required>
+    				<input name="submit" type="submit" value="Submit">
+    				
+    				<input id="pointa" name="pointa" type="hidden">
+    				<input id="pointb" name="pointb" type="hidden">
+    				<input id="distance" name="distance" type="hidden">
+    				<input id="price" name="price" type="hidden">
+
+				</fieldset>
+				
+			
+        	<?php 
+        	
+        	    if (isset($_POST['submit'])) {
+        	        
+        	        // echo "<script>document.getElementById(\"info-area\").value = document.getElementById(\"info\").value;</script>";
+        	   
+        	        // $to = "alimbeksagymbaev@gmail.com";
+            	    $to = $_POST['email-input'];
+            	    $subject = "Taxinearme order";
+            	    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+            	    
+            	    $message = "<html>";
+            	    $message .= "<head> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> ";
+            	    $message .= "<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap\" rel=\"stylesheet\">";
+            	    $message .= "<style> .section { border: 1px solid #000;  width: 40%; margin: 0 30%; padding: 0 30px; display: inline-block;} </style>";
+            	    $message .= "</head>";
+            	    $message .= "<body style=\"font-family: 'Open Sans', sans-serif;\">";
+            	    $message .= "<div class=\"section\" class=\"section\" style=\"color: 500050;\">";
+            	    $message .= "<h3>Your \"Taxinearme\" trip details</h3>";
+            	    $message .= "<h4>Order number: 1538</h4>";
+            	    $message .= "</div>";
+            	    $message .= "<div class=\"section\" style=\"background-color: #F5F5F5;\">";
+            	    $message .= "<h4>First name: </h4>". $_POST['first-name-input'] ."<h4>Last name: </h4>". $_POST['last-name-input'];
+            	    $message .= "<h4>Phone number: </h4>". $_POST['phone-input'];
+            	    $message .= "<h4>Email address: </h4>". $_POST['email-input'];
+            	    $message .= "<h4>From: </h4>". $_POST['pointa'] ."<h4>To: </h4>". $_POST['pointb'] ."<br> <h4>Distance: </h4>". $_POST['distance'];
+            	    $message .= "<h4>Additional information: </h4>". $_POST['info']. "<h4>Price: </h4>". $_POST['price'] . "$";
+            	    $message .= "</div>";
+            	    $message .= "</body></html>";
+            	    
+        	        
+        	        if (wp_mail($to, $subject, $message, $headers)) {
+        	 
+                        echo "<script>window.alert(\"successful order, details are sent to your email address\");</script>";
+                        wp_mail("service@taxinearme.info", $subject, $message, $headers);
+        	           
+        	        }
+        	        else { 
+        	            
+        	            echo "<script>window.alert(\"something went wrong, please try again!\");</script>";
+        	            
+        	        }
+        	        
+        	    }
+        	?>
+			
+			</form>
+		
+				
+		</div>
+	    <div class="col span-1-of-2 right-pane">
+	        <div class="reservation">
+	        
+		        <p class="section-title">Reservation</p>
+
+    			<div class="summary">
+    				
+    				<p id="from-field" name="from-field">From:</p>
+    
+    				<p id="to-field" name="to-field">To:</p>
+        
+        			<textarea id="info" name="info" placeholder="Any information you think might help the driver!" rows="5" cols="30" form="myform"></textarea>
+        			
+        			<p id="distance-field" name="distance-field">Distance:</p>
+        			
+		        </div>
+		        
+		    </div>
+	    </div>
+    </div>
+    
+    <iframe onload='somefun();' width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display: hidden; "></iframe>
+    
+	<script>
+
+    function somefun() {
+        
+        document.getElementById("myform").reset();
+        
+
+    }
+        
+    var from_field = document.getElementById('from-field');
+    var to_field = document.getElementById('to-field');
+    var distance_field = document.getElementById('distance-field');
+
+    var from = localStorage.getItem("from");
+    var to = localStorage.getItem("to");
+    var distance = localStorage.getItem("distance"); 
+    var price = localStorage.getItem("price");
+    
+    console.log(price);
+
+    from_field.innerHTML = "<strong>From: </strong>" + from;
+    to_field.innerHTML = "<strong>To: </strong>" + to;
+    distance_field.innerHTML = "<strong>Distance: </strong>" + distance;
+    
+    document.getElementById('pointa').value = from;
+    document.getElementById('pointb').value = to;
+    document.getElementById('distance').value = distance;
+    document.getElementById('price').value = price;
+
+    </script>
+    
+
+<?php get_footer(); ?>
