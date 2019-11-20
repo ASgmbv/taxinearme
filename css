@@ -1,0 +1,348 @@
+/*
+
+Primary: #013580
+Dark: #001153
+Light: #485eb0
+Text: #383838
+Grey: #f4f4f4
+Dark Grey: #d7d7d7
+Orange: #FEBB05
+Footer: #E9F0FA
+
+Facebook: #3b5998
+Twitter: #00aced
+Instagram: #517fa4
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html {
+    background-color: #fff;
+    color: #383838;
+    text-rendering: optimizeLegibility;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+    /*border: 1px solid green;*/
+}
+
+/*  PORTABLE
+==============================================*/
+
+h1 {
+    font-weight: 100;
+}
+
+
+
+
+/*  HEADER
+==============================================*/
+
+header p {
+    padding: 15px 20px;
+}
+
+
+#upper-header {
+    background-color: #013580;
+    font-weight: 700;
+}
+
+#upper-header p {
+    color: #fff;
+}
+
+#bottom-header {
+    border: 1px solid #000;
+    font-size: 80%;
+    font-weight: 400;
+}
+
+#bottom-header ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+#bottom-header ul li a {
+    text-decoration: none;
+    color: #383838;
+}
+
+#bottom-header ul li a:hover {
+    color: #0377CC;
+}
+
+
+/*  SECTION-MAP
+==============================================*/
+
+.section-map {
+    background-color: #fff;
+    background-size: cover;
+    padding: 50px 0;
+}
+
+.map-area {
+   
+    border-radius: 2px;
+}
+
+/*  FIELDS-MAP
+==============================================*/
+
+.map-container {
+    height: 400px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/*  MAP-FIELDS-INPUTS
+==============================================*/
+
+.inputs {
+    /* background-color: #fff; */
+}
+
+input {
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.input:after {
+    display: block;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #E2E2E2;
+    line-height: 2px;
+    margin-top: 10px;
+}
+
+.field {
+    margin: 20px;
+}
+
+.section-title {
+    font-size: 110%;
+    color: #3c3c3c;
+    font-weight: 600;
+}
+
+.field input {
+    background-color: #F6F6F6;
+    text-decoration: none;
+    outline: none;
+    border: 0;
+    font-size: 80%;
+    padding: 20px 10px;
+    width: 100%;
+}
+
+#distance-label {
+    font-size: 70%;
+    text-transform: uppercase;
+}
+
+#distance-value {
+    font-weight: 600;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #001153;
+    color: #fff;
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*  FIELDS-FORM
+==============================================*/
+.row-form {
+    margin-left: 15%;
+    width: 60%;
+}
+
+
+/* FOOTER
+==============================================*/
+
+footer {
+    background-color: #E9F0FA;
+    padding-bottom: 30px;
+}
+
+.social-links li {
+    list-style: none;
+    display: inline-block;
+    float: left;
+    height: 20px;
+    width: 20px;
+    margin: 20px;
+}
+
+.copyright {
+    text-align: end;
+    font-size: 80%;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* ICONS
+==============================================*/
+
+ion-icon {
+    font-size: 20px;
+}
+
+#logo-facebook {
+    color: #3b5998;
+}
+
+#logo-twitter {
+    color: #00aced;
+}
+
+#logo-instagram {
+    color: #517fa4;
+}
+
+
+
+/* CONTACT FORM
+==============================================*/
+
+.form-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 60vh;
+}
+
+.form-section input {
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 80%;
+    width: 100%;
+    outline: none;
+}
+
+#form-button {
+    background-color: #001153;
+    color: #fff;
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weigth: 600;
+}
+
+
+/* SUMMARY FORM
+==============================================*/
+
+
+.left-pane {
+    /* border: 1px solid #000; */
+}
+
+.right-pane {
+    /* border: 1px solid #000; */
+}
+
+.summary {
+    margin-top: 20px ;
+    padding: 20px;
+    width: 90%;
+    background-color: #FEBB05;
+    border-radius: 3%;
+}
+
+.reservation {
+    width: 80%;
+    display: inline-block;
+    float: right;
+}
+
+.summary p {
+    padding: 5px;
+    margin: 5px;
+    background-color: #fff;
+}
+
+.summary textarea {
+
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #000;
+
+    margin: 20px 0;
+    padding: 10px;
+    width: 100%;
+}
+
+/* GEO-ICON
+==============================================*/
+
+#geo-btn {
+    height: 20px;
+    width: 20px;
+    margin-top: 3px;
+}
+
+
+.loader {
+    border: 2px solid #d7d7d7; /* Light grey */
+    border-top: 2px solid #000; /* Blue */
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
